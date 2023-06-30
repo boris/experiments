@@ -16,4 +16,6 @@ I plan to use the following structure:
 └── go
     └── example_code0
     └── example_codeN
+└── rust
+    └── example_code0
 ```
