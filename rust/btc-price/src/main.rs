@@ -15,8 +15,8 @@ struct BpiData {
 
 #[derive(Deserialize, Debug)]
 struct CurrencyData {
-    description: String,
-    rate: String,
+    code: String,
+    rate_float: f64,
 }
 
 fn main() {
@@ -28,8 +28,8 @@ fn main() {
         let bpi_response: BpiResponse = serde_json::from_value(json).expect("Failed to deserialize JSON");
 
         if let Some(usd_data) = bpi_response.bpi.usd {
-            let usd_rate = usd_data.rate;
-            let usd_description = usd_data.description;
+            let usd_rate = usd_data.rate_float;
+            let usd_description = usd_data.code;
             println!("{}: {}", usd_description, usd_rate);
         }
 
