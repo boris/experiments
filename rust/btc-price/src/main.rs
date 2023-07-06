@@ -30,7 +30,7 @@ fn main() {
         if let Some(usd_data) = bpi_response.bpi.usd {
             let usd_rate = usd_data.rate_float;
             let usd_description = usd_data.code;
-            println!("{}: {}", usd_description, usd_rate);
+            println!("BTC: {} {}", usd_rate, usd_description);
         }
 
 
