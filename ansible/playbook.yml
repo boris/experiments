@@ -1,0 +1,40 @@
+---
+- hosts: all
+  vars:
+    server_name: "{{ ansible_default_ipv4.address }}"
+    document_root: /var/www/html
+    app_root: nginx/www
+  tasks:
+    - name: apt update
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    - name: install nginx
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+
+    - name: Copy files
+      copy:
+        src: "{{ app_root }}"
+        dest: "{{ document_root }}"
+        mode: preserve
+
+    - name: Apply nginx template
+      template:
+        src: nginx/files/nginx.conf.j2
+        dest: /etc/nginx/sites-available/default
+      notify: Restart Nginx
+
+    - name: Enable site
+      file:
+        src: /etc/nginx/sites-available/default
+        dest: /etc/nginx/sites-enabled/default
+        state: link
+      notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
