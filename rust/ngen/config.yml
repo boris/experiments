@@ -1,0 +1,5 @@
+db: 'some/path/to/file.db'
+data_sources:
+  - google.com
+  - duckduckgo.com
+num_threads: 3
