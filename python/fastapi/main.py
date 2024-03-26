@@ -21,6 +21,7 @@ async def get_json(request: Request):
     tuples = create_tuple(file)
 
     results = []
+    results.append({"current_price": f'{current_price}'})
 
     for tuple in tuples:
         value = tuple[1] / current_price
