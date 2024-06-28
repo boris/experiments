@@ -9,6 +9,11 @@ def create_tuple(data: dict) -> List[Tuple[str, int]]:
     tuples = [(user["name"], user["amount"]) for user in users]
     return tuples
 
+def get_git_hash():
+    import subprocess
+    git_tag = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("utf-8")
+    return git_tag
+
 @app.post("/")
 async def get_json(request: Request):
     file = await request.json()
@@ -30,3 +35,8 @@ async def get_json(request: Request):
         })
 
     return results
+
+
+@app.get("/health")
+async def health():
+    return {"status": "ok", "git_hash": get_git_hash()}
