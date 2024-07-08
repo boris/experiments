@@ -20,5 +20,5 @@ I plan to use the following structure:
     └── example_code0
 ```
 
-## Challenger
+## Challenges
 See [Readme.md](./challenges/Readme.md).
