@@ -28,3 +28,9 @@ Pyenv:
 ```
 pyenv install 3.10.12
 ```
+
+Running it:
+```
+export INFURA_TOKEN="my_token"
+python main,py
+```
