@@ -14,7 +14,7 @@ def running_containers():
 
         container_stats = json.loads(stats_result.stdout)
 
-        print(container_id + "\t" + container_info['Names'] + "\t"+ container_info['Status'] + "\t" + container_stats['CPUPerc'] + "\t" + container_stats['MemUsage'])
+        print(f"{container_id:<12} {container_info['Names']:<20} {container_info['Status']:<20} {container_stats['CPUPerc']:<10} {container_stats['MemUsage']}")
 
 
 
