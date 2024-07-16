@@ -3,6 +3,7 @@ Create a FastAPI application that exposes an endpoint to fetch the latest
 Ethereum block number and the balance of a given Ethereum address using Infura.
 
 ## Requirements:
+1. An [Infura](https://infura.io/) account.
 1. Set up a FastAPI application.
 1. Create an endpoint /balance that accepts an Ethereum address as a query
    parameter.
