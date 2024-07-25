@@ -1,0 +1,29 @@
+# this approach reduces the time complexity from O(n^2) to O(n) because it only
+# traverses string twice.
+# the first for loop traverses the string and populate the dictionary with the
+# count of each char.
+# the second for loop traverses the string again and return the first char with
+# a count of 1
+def check_first_non_rep(string):
+    char_count = {}
+
+    for char in string:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+
+    for char in string:
+        if char_count[char] == 1:
+            return char
+
+    return "_"
+
+
+if __name__ == "__main__":
+    print(check_first_non_rep("swiss"))
+    print(check_first_non_rep("releveler"))
+    print(check_first_non_rep("aabbcc"))
+    print(check_first_non_rep("VLMMIJOZCPDUUWTGBAYMLOFMDJOBPBHCMXBAFZEBKUCUFPOVBDSZCHBWTREGCMVKOGDOHAAHPMGKWIMMLCSZPPMJYLGSYKAAVPBLJGGKTXAQZCSZTORJRTUAUHEGQCBCXCZJZGZVSJKPJLPZUQKSZGSYAMZUGTKDCPZPDJUXZGPGNSFNQHHEWJWCAIVUVRWZVJWYTCKCSQDUGBXFYDMLHWPJYGDCVAWPIZEAKRMRXTZOCVPYKCSCGFIABCMMDPAMITVHWRQNTKBSKTLZAFZYRKRZPSZWXZLDXZVXHTJKAUPYEKGJBIANLBNREUPEYCAFNXJCMORJNMFEXEJCJMBJLYMAZHFAEHDOTXYIFOCLAPZAIBFRWJZYLPWUIWAFPAPYIZHQUOJQTTITHDSQZPRATPWGOEJMFVUZJNYEANYLZEKKFUPGYOFKUOUFFWCPPUAJUPCFQVOKSYDHVQNMVCUUCGMAGEREGXJPREXAVLIBUUOXGDENGAAGAATUWAESQIYJEMNGKXYREBYOOEYXHJMXABEOQOYTPEKZNLBGKFIPBKQAJIHDYSKRALAPATWSCZQREDPLNQVTHKCLVSBGSKDHTQDRXMXSTPHMJRBCFGSWMFKEQPTPUTMVELDTIZVCJEDQQCOPGVNXPAMVMCGSYXPDELMSKFHMRSSUVLFSBRQXNFTITCORMLJZYTGKZAVEXOQBVGQOLJDIHRNFUVMAXMMSCMOCVLSTXBLGWXUGPHPDGZBFTLLWJJEVILUNILWVCDDNISEXYGIDMYXXCFCDURUWRCOXWKYXZVUIAQ"))
+
+
